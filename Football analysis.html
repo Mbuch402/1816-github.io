@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Football Analytics</title>
+  <style>
+    :root {
+      --bg: #f97a00;
+      --fg: #fefaf0;
+      --accent: #fff4a4;
+      --card: #347433;
+      --link: #d9a441;
+      --frame-bg: #5e3b1e; /* dark brown */
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      color: var(--accent);
+    }
+
+    .frame {
+      background-color: var(--frame-bg);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .downloads a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="container">
+      <h1>Football Analytics Exploratory Data Analysis</h1>
+
+      <div class="card">
+        <h2>Overview</h2>
+        <p>
+          This project translates raw football data into sharp, actionable insights for both strategic betting and tactical evaluation. Using Python and Pandas, I analyzed hundreds of players and teams from Europe’s top leagues to uncover inefficiencies in finishing, patterns in card accumulation by position and nationality, penalty-taking reliability, and the profiles of complete, low-risk performers. The result is a boardroom-ready presentation built to refine prop markets, enhance odds modeling, and guide profitable decisions in sports betting—all grounded in real match data.
+        </p>
+        <p>
+          Building on that same foundation, I developed Mbuch Fantasy, a football analytics web app built with Python, Pandas, and Streamlit. The app predicts team efficiency based on 1,573 players using metrics like xG, xAG, progressive play, and discipline. I designed a role-aware scoring algorithm that rates players from 0–100, reflecting their consistency and impact. With intuitive tools to select formations and test lineups, the app brings deep football analytics to life—bridging predictive modeling and hands-on strategy for both fans and professionals.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Key Business Insights Extracted</h2>
+        <ul>
+          <li><strong>Finishing Quality vs Creativity:</strong> I identified teams with high progressive metrics but poor goal conversion (e.g., Man Utd), signaling inefficiencies in final third execution.</li>
+          <li><strong>Card Prop Bets by Demographics:</strong> Midfielders draw the most cards per 90, and Portuguese players have the highest red card rate—ideal intelligence for betting markets.</li>
+          <li><strong>Reliable Penalty Takers:</strong> Players like Bruno Fernandes and Isak show perfect conversion rates and high playtime, making them predictable scorers across leagues.</li>
+          <li><strong>Value-for-Money Performers:</strong> I filtered complete players (e.g., Salah, Mbappé) who combine high goal contribution, progressive actions, and strong discipline with consistent minutes played.</li>
+        </ul>
+      </div>
+
+      <div class="card downloads">      
+        <h2>Download My Reports</h2>
+        <a href="pdfs\Football_Analytics.pdf" target="_blank">📄 PDF Report</a>      
+        <a href="\Mbuch_tu-github.io-main\pdfs\Powerpoints\Strategic_Betting_Insights_Report.pptx" download>📊 PowerPoint Slides</a>    
+        <a href="pdfs\Plot images Football Plots.pdf" target="_blank">📄 Plot images</a>  
+
+      </div>
+
+      <div class="card">
+        <h2>Try the App</h2>
+        <p>
+          Explore the <strong>Mbuch Fantasy Predictor</strong> web app:
+          <a href="https://mbuchfantacypredictor.streamlit.app/" target="_blank">Launch App</a>
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Project archive</h2>
+        <ul>
+          <li>Dataset from <a href="https://www.kaggle.com/datasets/orkunaktas/all-football-players-stats-in-top-5-leagues-2425" target="_blank">Kaggle.</a></li>
+          <li>Code on my <a href="https://github.com/mbuch2023/Football-Analytics" target="_blank">GitHub</a> repository.</li>
+          <li>Presentation slides <a href="Mbuch_tu-github.io-main\pdfs\Powerpoints\Strategic_Betting_Insights_Report.pptx" download>📊 Download</a> link</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
