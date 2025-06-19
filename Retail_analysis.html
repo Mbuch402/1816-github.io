@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Data Analysis Report</title>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #212529;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%),
+                               url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1, h2, .section-heading {
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #57648d, #041c42);
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #a47fb4;
+        }
+
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid #60a5fa;
+        }
+
+        h2::after, .section-heading::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #0f6874;
+            border-left: 4px solid #60a5fa;
+            padding-left: 12px;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: #1e40af;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+        }
+
+        ul li::before {
+            content: "📊";
+            position: absolute;
+            left: -20px;
+            top: 0;
+            font-size: 14px;
+            color: #3b82f6;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #3d59a0, #684300);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 5px solid #60a5fa;
+        }
+
+        section {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        section::before {
+            content: "💼";
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 20px;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+
+        .btn {
+            background-color: #3b82f6;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sales Data Analysis Report</h1>
+        <p>Published on January 05, 2025</p>
+    </header>
+    
+    <main>
+        <section>
+            <h3><b>Executive Summary</b></h3>
+            <div class="highlight-box">
+                <p>Analysis of <b>1,000 customer transactions</b> across three product categories (Beauty, Clothing, Electronics) reveals balanced gender spending patterns, age-driven purchasing behaviors, and significant seasonal variations requiring strategic attention.</p>
+            </div>
+            <p>This comprehensive analysis examined customer demographics, spending patterns, product performance, and seasonal trends to provide actionable business insights. The dataset was analyzed across multiple dimensions:</p>
+            <ul>
+                <li><b>Customer Demographics & Gender Analysis</b></li>
+                <li><b>Age Group Segmentation & Spending Behavior</b></li>
+                <li><b>Product Category Performance</b></li>
+                <li><b>Seasonal Demand Patterns</b></li>
+                <li><b>Purchase Behavior Analysis</b></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><b>1. <u>Customer Demographics & Spending Patterns</u></b></h3>
+            <h4>Gender Balance Analysis</h4>
+            <ul>
+                <li><b>Total Spending:</b>
+                    <ul>
+                        <li>Female customers: $232,840 total revenue</li>
+                        <li>Male customers: $223,160 total revenue</li>
+                        <li>Difference: Only 4.3% variance</li>
+                    </ul>
+                </li>
+                <li><b>Per-Transaction Behavior:</b>
+                    <ul>
+                        <li>Female average: $456.55 per transaction</li>
+                        <li>Male average: $455.43 per transaction</li>
+                        <li>Quantity patterns: Women buy 2.55 items vs men's 2.48 items</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h4>Age Group Distribution</h4>
+            <ul>
+                <li><b>Market Dominance:</b> 45-60 age group represents 35% of customers and 33.8% of total revenue</li>
+                <li><b>High-Value Segment:</b> 18-24 customers spend most per transaction ($501) despite lowest market penetration</li>
+                <li><b>Underperforming Segment:</b> 60+ customers represent only 7.3% of revenue</li>
+            </ul>
+
+            <h4>Key Insights</h4>
+            <ul>
+                <li>Gender-neutral marketing approach is validated by balanced spending patterns</li>
+                <li>Opportunity exists to expand reach in younger (18-24) and senior (60+) demographics</li>
+                <li>Middle-aged customers (45-60) drive core business volume</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><b>2. <u>Product Category Performance</u></b></h3>
+            <h4>Revenue Distribution</h4>
+            <ul>
+                <li><b>Electronics:</b> $156,905 (34.4% of total revenue) - Market leader</li>
+                <li><b>Clothing:</b> $155,580 (34.1% of total revenue) - Close second</li>
+                <li><b>Beauty:</b> $143,515 (31.5% of total revenue) - Smallest but stable</li>
+            </ul>
+
+            <h4>Gender Preferences by Category</h4>
+            <ul>
+                <li><b>Beauty & Clothing:</b> Women slightly outspend men (52% vs 48%)</li>
+                <li><b>Electronics:</b> Men lead marginally (51% vs 49%)</li>
+                <li><b>Overall Pattern:</b> Differences are minimal (2-4 percentage points)</li>
+            </ul>
+
+            <h4>Purchase Behavior Analysis</h4>
+            <ul>
+                <li><b>Price-Quantity Relationship:</b> No correlation found (r ≈ 0.02, p > 0.05)</li>
+                <li><b>Extreme Purchases:</b>
+                    <ul>
+                        <li>High-quantity: Clothing (97) and Electronics (93) dominate bulk buying</li>
+                        <li>High-price: Beauty leads premium purchases (68 transactions)</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><b>3. <u>Seasonal Demand & Market Trends</u></b></h3>
+            <h4>Peak Performance Periods</h4>
+            <ul>
+                <li><b>May Peak:</b> Both Clothing ($17,455) and Electronics ($23,245) reach annual highs</li>
+                <li><b>July Peak:</b> Beauty category peaks at $16,090</li>
+                <li><b>Consistent Categories:</b> Beauty and Clothing maintain stable $10-17K monthly performance</li>
+            </ul>
+
+            <h4>Electronics Volatility Concern</h4>
+            <div class="highlight-box">
+                <p><b>Critical Finding:</b> Electronics shows extreme monthly variations ranging from $3,380 (March) to $23,245 (May) - a 587% swing that requires immediate investigation.</p>
+            </div>
+            
+            <ul>
+                <li>Potential causes: Promotional campaigns, supply chain issues, or seasonal product launches</li>
+                <li>Impact: Creates unpredictable revenue streams and inventory challenges</li>
+                <li>Recommendation: Analyze underlying factors driving volatility</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><b>4. <u>Strategic Recommendations</u></b></h3>
+            <h4>Immediate Actions</h4>
+            <ul>
+                <li><b>Electronics Investigation:</b> Conduct deep-dive analysis of monthly performance drivers</li>
+                <li><b>Seasonal Optimization:</b> Increase inventory and marketing spend during identified peak months</li>
+                <li><b>Demographic Expansion:</b> Develop targeted campaigns for underrepresented age segments</li>
+            </ul>
+
+            <h4>Marketing Strategy</h4>
+            <ul>
+                <li><b>Age-Based Campaigns:</b> Leverage high-spending potential of younger demographics</li>
+                <li><b>Category-Specific Approach:</b>
+                    <ul>
+                        <li>Bulk promotions for Clothing/Electronics</li>
+                        <li>Premium positioning for Beauty products</li>
+                    </ul>
+                </li>
+                <li><b>Gender-Neutral Messaging:</b> Maintain balanced approach given equal spending patterns</li>
+            </ul>
+
+            <h4>Revenue Optimization</h4>
+            <ul>
+                <li><b>Seasonal Planning:</b> Capitalize on May (Clothing/Electronics) and July (Beauty) peaks</li>
+                <li><b>Inventory Management:</b> Stabilize Electronics supply chain to reduce volatility</li>
+                <li><b>Customer Segmentation:</b> Develop personalized offers for bulk vs premium buyers</li>
+            </ul>
+        </section>
+
+        <h2><b>Overall Conclusion</b></h2>
+        <p>The analysis reveals a healthy, balanced business with clear opportunities for optimization. The <b>gender-neutral spending patterns</b> validate current marketing approaches, while <b>age-based insights</b> highlight expansion opportunities. The <b>seasonal trends</b> provide clear direction for inventory and marketing planning.</p>
+        
+        <div class="highlight-box">
+            <p><b>Priority Focus:</b> Addressing Electronics volatility and optimizing seasonal inventory management will maximize revenue during identified peak periods while stabilizing overall business performance.</p>
+        </div>
+
+        <p>This structured analysis provides actionable insights suitable for immediate implementation, with clear metrics for measuring success and ROI on recommended strategies.</p>
+
+        <h2><u>Data Analysis Archive & Resources</u></h2>
+        <b>Analysis Components</b>
+        <ul>
+            <li><b>Dataset Overview:</b> 1,000 transactions across 8 variables (Date, Gender, Age, Product Category, Quantity, Price per Unit, Total Amount)</li>
+            <li><b>Statistical Methods:</b> Correlation analysis, demographic segmentation, seasonal trend analysis</li>
+            <li><b>Key Visualizations:</b> Revenue distribution charts, seasonal trend lines, demographic breakdowns</li>
+            <li><b>Business Metrics:</b> Customer lifetime value, category performance, seasonal volatility coefficients</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add("loaded");
+        });
+    </script>
+</body>
+</html>
