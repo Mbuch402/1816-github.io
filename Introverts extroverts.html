@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Personality with Data</title>
+    <style>
+        /* Apply dark mode with deep forest greens and golden highlights */
+        body {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%), 
+                              url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /* Center big headers */
+        h1, h2, .section-heading {
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d6a4f, #40916c);
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #74c69d;
+        }
+
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid #74c69d;
+        }
+
+        h2::after, .section-heading::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #74c69d, #40916c);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #2d6a4f;
+            border-left: 4px solid #74c69d;
+            padding-left: 12px;
+        }
+
+        a {
+            color: #29AB87;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: #1e8a6b;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #29AB87;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+        }
+
+        ul li::before {
+            content: "🍃"; /* Leaf emoji instead of bullet */
+            position: absolute;
+            left: -20px;
+            top: 0;
+            font-size: 14px;
+            color: #40916c;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d6a4f, #40916c);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 5px solid #74c69d;
+        }
+
+        section {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        section::before {
+            content: "🌿";
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 20px;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Predicting Personality with Data: Extrovert vs. Introvert Classification</h1>
+        <p>Published on 20/07/2025</p>
+    </header>
+    <main>
+        <section>
+            <h3><b>About the Dataset</b></h3>
+            <p>This dataset includes 2,900 entries and 8 features that track behavioral indicators commonly associated with extroversion and introversion. It covers:</p>
+            <ul>
+                <li>Time_spent_Alone – Daily hours spent in solitude</li>
+                <li>Stage_fear – Whether someone experiences stage fright</li>
+                <li>Social_event_attendance – Frequency of attending social events</li>
+                <li>Going_outside – How often they step out</li>
+                <li>Drained_after_socializing – Do they feel exhausted after interactions?</li>
+                <li>Friends_circle_size – Size of their close friend group</li>
+                <li>Post_frequency – Social media posting habits</li>
+                <li>Personality – The target label: Extrovert or Introvert</li>
+            </ul>
+            <p>The dataset includes both numerical and binary categorical data, and yes—like any realistic dataset—it includes a few missing values, which I handled using common imputation techniques.</p>
+        </section>
+
+        <section>
+            <h3><b>What I Did</b></h3>
+            <p>I transformed this raw behavioral data into a working personality prediction model using a supervised learning approach. Here's a quick snapshot of my workflow:</p>
+            <ul>
+                <li><b>Data Cleaning:</b> I handled missing values using median and mode imputation, depending on the feature type.</li>
+                <li><b>Encoding:</b> Binary values like "Yes"/"No" were encoded into 1s and 0s.</li>
+                <li><b>Exploratory Data Analysis (EDA):</b> I visualized relationships, like how "time spent alone" inversely correlated with extroversion.</li>
+                <li><b>Modeling:</b> I tested multiple classifiers (Logistic Regression, Random Forest, and SVM), optimizing for accuracy and interpretability.</li>
+                <li><b>Evaluation:</b> Achieved strong classification accuracy while keeping the model interpretable—ideal for practical use cases like HR assessments, user personalization, or behavioral studies.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><b>Why This Project Matters</b></h3>
+            <p>Personality prediction isn’t just an academic exercise. Brands, psychologists, UX designers, and even educators can use these insights to tailor experiences, communications, and environments to better suit individual temperaments. With proper ethical guardrails, personality-aware systems can be both powerful and respectful of user privacy.</p>
+        </section>
+
+        <section>
+            <h3><b>Final Thoughts</b></h3>
+            <p>This project was more than just model training—it was an exercise in understanding human behavior through data. It also served as a hands-on testbed for practicing essential data science skills: cleaning messy data, choosing the right encodings, tuning models, and interpreting results in a meaningful way.</p>
+            <p>Please have a go at the app. See what the model thinks about you → <a href="https://ml-modeltrial-bx2kuykxrwtsqus4nx5k9d.streamlit.app/" target="_blank"><b>Try the app</b></a></p>
+            <p>Please note that if you find the app asleep, just tap on the Wake up button.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mbuch_tu. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add("loaded");
+        });
+    </script>
+</body>
+</html>
